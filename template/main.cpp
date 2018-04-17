@@ -4,6 +4,7 @@
 #include <iostream>
 
 int main(int argc, char** args) {
+
 	glfwInit();
 	
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

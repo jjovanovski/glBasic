@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
-project(glBasic)	# rename this
+set(CUSTOM_PROJECT_NAME "glBasic" CACHE STRING "Project name")
+project(${CUSTOM_PROJECT_NAME})	# rename this
 
 option(GLFW_BUILD_DOCS OFF)
 option(GLFW_BUILD_EXAMPLES OFF)

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.1)
 set(CUSTOM_PROJECT_NAME "glBasic" CACHE STRING "Project name")
 project(${CUSTOM_PROJECT_NAME})
 
@@ -30,8 +30,9 @@ file(GLOB GLAD_SOURCE glad/src/glad.c)
 source_group("GladSource" FILES ${GLAD_SOURCE})
 
 add_definitions(-DGLFW_INCLUDE_NONE -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\")
-add_executable(${PROJECT_NAME} ${CMAKE_BINARY_DIR}/main.cpp ${GLAD_SOURCE})
+add_executable(${PROJECT_NAME} ${GLAD_SOURCE})
 target_link_libraries(${PROJECT_NAME} glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES})
+target_sources(${PROJECT_NAME} PUBLIC ${TemplateFiles})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})

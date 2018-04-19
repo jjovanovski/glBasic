@@ -24,7 +24,7 @@ include_directories(
 )
 
 file(GLOB TemplateFiles template/*)
-file(COPY ${TemplateFiles} DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${TemplateFiles} DESTINATION ${CMAKE_BINARY_DIR}/src/)
 
 file(GLOB GLAD_SOURCE glad/src/glad.c)
 source_group("GladSource" FILES ${GLAD_SOURCE})
@@ -32,7 +32,7 @@ source_group("GladSource" FILES ${GLAD_SOURCE})
 add_definitions(-DGLFW_INCLUDE_NONE -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\")
 add_executable(${PROJECT_NAME} ${GLAD_SOURCE})
 target_link_libraries(${PROJECT_NAME} glfw ${GLFW_LIBRARIES} ${GLAD_LIBRARIES})
-target_sources(${PROJECT_NAME} PUBLIC ${TemplateFiles})
+target_sources(${PROJECT_NAME} PUBLIC ${CMAKE_BINARY_DIR}/src/main.cpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})

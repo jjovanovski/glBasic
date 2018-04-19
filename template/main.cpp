@@ -24,7 +24,7 @@ int main(int argc, char** args) {
 	
 	glfwMakeContextCurrent(window);
     gladLoadGL();
-	
+
 	while (!glfwWindowShouldClose(window)) {
         if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, true);
